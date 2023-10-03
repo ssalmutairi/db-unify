@@ -6,6 +6,10 @@
 	"scripts": {
 		"test": "nyc --reporter=html tap \"test/**/*.test.js\""
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ssalmutairi/db-unify.git"
+	},
 	"keywords": [],
 	"author": "Shafi S.Almutairi <shafi.almutairi@gmail.com>",
 	"license": "MIT",
