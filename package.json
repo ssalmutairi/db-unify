@@ -1,0 +1,26 @@
+{
+	"name": "db-unify",
+	"version": "1.0.0",
+	"description": "A library to unify the database access for different database engines",
+	"main": "index.js",
+	"scripts": {
+		"test": "nyc --reporter=html tap \"test/**/*.test.js\""
+	},
+	"keywords": [],
+	"author": "Shafi S.Almutairi <shafi.almutairi@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"mariadb": "^3.2.1",
+		"mysql2": "^3.6.1",
+		"oracledb": "^6.1.0",
+		"pg": "^8.11.3",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.33.0",
+		"sqlite3": "^5.1.6",
+		"tedious": "^16.4.1"
+	},
+	"devDependencies": {
+		"nyc": "^15.1.0",
+		"tap": "^18.4.2"
+	}
+}

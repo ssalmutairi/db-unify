@@ -1,0 +1,8 @@
+# .gitignore
+node_modules/
+
+.nyc_output/
+.tap
+coverage/
+
+.DS_Store
