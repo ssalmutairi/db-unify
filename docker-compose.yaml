@@ -1,0 +1,117 @@
+version: "3.8"
+
+services:
+  # nginx-service:
+  #   container_name: nginx-service
+  #   image: nginx
+  #   restart: always
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - network-layer
+  #   depends_on:
+  #     - backend-service
+  # # backend-service:
+  #   container_name: backend-service
+  #   build: ./backend
+  #   # mount the source code to the container and ignore node_modules
+  #   volumes:
+  #     - ./backend:/usr/src/app
+  #     - /usr/src/app/node_modules
+
+  #   environment:
+  #     - NODE_ENV=development
+  #     # - FASTIFY_ADDRESS='0.0.0.0'
+  #     - FASTIFY_PORT=4000
+  #     - FASTIFY_LOG_LEVEL='debug'
+  #     - FASTIFY_PRETTY_LOGS=true
+  #     - FASTIFY_WATCH=true
+  #     - FASTIFY_IGNORE_WATCH='node_modules .git .nyc_output logs/error.log'
+
+  #   networks:
+  #     - network-layer
+
+  mysql5:
+    container_name: mysql5
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "33060:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - mysql-5:/var/lib/mysql
+    networks:
+      - network-layer
+  mysql8:
+    container_name: mysql8
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - mysql-8:/var/lib/mysql
+    networks:
+      - network-layer
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - "33062:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_PORT: 3306
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - network-layer
+  postgresql:
+    container_name: postgres
+    image: postgres:13.1
+    restart: always
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+      POSTGRES_PORT: 5432
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    networks:
+      - network-layer
+  mssql:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    ports:
+      - "14330:1433"
+    environment:
+      SA_PASSWORD: "Password12!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssql:/var/opt/mssql
+    networks:
+      - network-layer
+
+networks:
+  network-layer:
+    driver: bridge
+
+volumes:
+  mysql-5: {}
+  mysql-8: {}
+  mariadb: {}
+  postgresql: {}
+  mssql: {}
