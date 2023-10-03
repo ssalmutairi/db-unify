@@ -1,7 +1,3 @@
-Certainly! Below is a basic structure and content for a `readme.md` file for `db-unity`. It provides an introduction, installation instructions, a list of features, usage examples, and contribution guidelines. You can modify this template to suit your specific needs and the nuances of your project.
-
----
-
 # DB-Unity
 
 Unified database operations made easy. Manage, control, and perform unified actions on multiple databases with a single interface.
